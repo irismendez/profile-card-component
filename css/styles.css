@@ -1,1 +1,98 @@
-/* font-family: 'Kumbh Sans', sans-serif; */
+html {box-sizing: border-box;}
+*, 
+*::before,
+*::after {box-sizing: inherit;}
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Kumbh Sans', sans-serif;
+  background-color: var(--bg-body);
+}
+:root {
+  --bg-card: hsl(0, 0%, 100%);
+  --bg-body: hsl(185, 75%, 39%);
+  --clr-h: hsl(229, 23%, 23%);
+  --clr-p: hsl(227, 10%, 46%);
+  --clr-line: 0 0% 59%;
+}
+.clr-h {color: var(--clr-h);}
+.clr-p {color: var(--clr-p);}
+
+.card {
+  width: clamp(20.43rem, 87.2vw, 21.875rem);
+  background-color: var(--bg-card);
+  border-radius: 1em;
+  overflow: hidden;
+}
+.card__header {height: 8.75rem;}
+.card__header--bubbles {
+  height: 100%;
+  object-fit: cover;
+}
+
+.card__info--fig {
+  width: fit-content;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 5px solid var(--bg-card);
+  background-color: var(--bg-card);
+}
+.card__info--photo { border-radius: 50%;}
+.card__info--name {
+  margin-top: -2.05em;
+  margin-bottom: 0;
+  font-size: 1.125rem;
+}
+.card__info--age {font-weight: initial;}
+.card__info--city {
+  margin-top: .3em;
+  padding-bottom: 1.8em;
+  font-size: .85rem;
+  font-weight: 400;
+  border-bottom: 1px solid hsl(var(--clr-line)/ .3);
+}
+
+.card__stats {
+  padding-block: .35em;
+  display: flex;
+  justify-content: space-evenly;
+}
+.card__stats--number {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.card__stats--text {
+  display: block;
+  font-size: .68rem;
+  font-weight: initial;
+  letter-spacing: 2px;
+}
+
+.attribution {
+  margin-top: -2.625rem;
+  font-size: clamp(.75rem, 3vw, .85rem);
+}
+.attribution__link {
+  position: relative;
+  font-weight: 700;
+  color: inherit;
+  outline: none;
+}
+.attribution__link::after {
+  position: absolute;
+  content: '';
+  width: 30%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--clr-h);
+  transition: width .3s ease-in-out;
+}
+.attribution__link:hover::after,
+.attribution__link:focus-visible:after {width: 100%;}
